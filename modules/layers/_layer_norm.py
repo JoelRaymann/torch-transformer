@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 
-class LayerNorm1D(nn.Module):
+class LayerNorm1DLayer(nn.Module):
     """
     A `nn.Module` layer class which implements the Layer Normalization of the Transformer model. This will take the
     embedded sequence matrix of the input sentence and normalize it using the mean and standard deviation of the sequence

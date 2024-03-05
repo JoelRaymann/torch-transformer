@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 
-class PositionalEncoding(nn.Module):
+class PositionalEncodingLayer(nn.Module):
     """
     A `nn.Module` layer class which implements the positional encoding of the Transformer model. This will take the embedded sequence matrix of the
     input sentence and apply positional encoding on it along with (optional) dropout.

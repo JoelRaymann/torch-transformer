@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 
-class InputEmbeddings(nn.Module):
+class InputEmbeddingLayer(nn.Module):
     """
     A `nn.Module` model class which is used to create the input embeddings for the transformer model.
 
