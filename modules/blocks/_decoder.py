@@ -22,7 +22,7 @@ class TransformerDecoderBlock(nn.Module):
         self,
         d_model: int = 512,
         num_heads: int = 8,
-        feed_forward_dim: int = 2048,
+        d_ff: int = 2048,
         dropout: float = 0.1,
     ) -> None:
         """
@@ -35,7 +35,7 @@ class TransformerDecoderBlock(nn.Module):
         Args:
             d_model (int, optional): The number of expected features in the input (default: 512). Defaults to 512.
             num_heads (int, optional): The number of heads in the multiheadattention models (default: 8). Defaults to 8.
-            feed_forward_dim (int, optional): The dimension of the feedforward network model (default: 2048). Defaults to 2048.
+            d_ff (int, optional): The dimension of the feedforward network model (default: 2048). Defaults to 2048.
             dropout (float, optional): The dropout value (default: 0.1).
         """
 
@@ -60,7 +60,7 @@ class TransformerDecoderBlock(nn.Module):
         # 3. Finally, define the feed-forward block with layer normalization
         self.feed_forward_block = FeedForwardBlock(
             d_model=d_model,
-            d_ff=feed_forward_dim,
+            d_ff=d_ff,
             dropout=dropout,
         )
         self.feed_forward_layer_norm = CustomLayers.LayerNorm1DLayer()
