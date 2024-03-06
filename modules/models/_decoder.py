@@ -1,6 +1,6 @@
-from typing import Optional
 import torch
 import torch.nn as nn
+from typing import Optional
 
 # Import Blocks
 import modules.blocks as CustomBlocks
@@ -14,6 +14,10 @@ class DecoderModel(nn.Module):
     def __init__(
         self,
         num_layers: int = 6,
+        d_model: int = 512,
+        d_ff: int = 2048,
+        num_heads: int = 8,
+        dropout: float = 0.1,
     ) -> None:
         """
         A `nn.Module` that represents the Decoder of the Transformer model. This is a stack of `num_layers` Transformer decoder
@@ -25,10 +29,10 @@ class DecoderModel(nn.Module):
         self.decoder_blocks = nn.ModuleList(
             [
                 CustomBlocks.TransformerDecoderBlock(
-                    d_model=512,
-                    d_ff=2048,
-                    num_heads=8,
-                    dropout=0.1,
+                    d_model=d_model,
+                    d_ff=d_ff,
+                    num_heads=num_heads,
+                    dropout=dropout,
                 )
                 for _ in range(num_layers)
             ]
